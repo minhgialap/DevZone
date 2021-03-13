@@ -7,12 +7,13 @@ int main(){
     printf("nhap phan tu %d : ",i+1);
     scanf("%d",&a[i]);
    }
-   printf("\nvi tri ban dau cua 2 phan tu la : %d -- %d ",a[0],a[1]);
-   c = a[0];
-   a[0] = a[1];
-   a[1] = c;
+     printf("\n  vi tri ban dau cua 2 phan tu la : %d -- %d ",a[0],a[1]);
+   
+        c = a[0];
+        a[0] = a[1];
+        a[1] = c;
 
-   printf("\n vi tri sau khi hoan doi : %d -- %d ",a[0],a[1]);
+        printf("\n vi tri sau khi hoan doi : %d -- %d ",a[0],a[1]);
+   
    return 0;
-
 }
