@@ -29,27 +29,26 @@ void ThemPhanTu(int a[],int *n,int GiaTri){
                 a[(*n)] = GiaTri;
             }
      }
-
      ++(*n);
 }
 
-void xoaPhanTu(int a[], int *n,int pos)
+void xoaPhanTu(int a[], int *n,int VT)
 {
 
     printf("\nvi tri phan tu muon xoa: ");
-    scanf("%d", &pos);
-    for(int i=pos; i<(*n); i++){
+    scanf("%d", &VT);
+    for(int i=VT; i<(*n); i++){
         a[i] = a[i+1];
     }
     --(*n);
 }
 
-void ChenPhanTu(int a[], int *n, int GiaTri, int pos){
+void ChenPhanTu(int a[], int *n, int GiaTri, int VT){
 
-       for(int i = (*n); i > pos; i--){
+       for(int i = (*n); i > VT; i--){
                 a[i] = a[i-1];
           }
-          a[pos] = GiaTri;
+          a[VT] = GiaTri;
 
          ++(*n);
 }
@@ -57,10 +56,10 @@ void ChenPhanTu(int a[], int *n, int GiaTri, int pos){
 
 
 void menu(){
-   printf("\t 1.Nhap Mang.\n");
-   printf("\t 2.Them Phan Tu vao trong mang.\n");
-   printf("\t 3.Chen phan tu vao vi tri bat ki.\n");
-   printf("\t 4.Xoa phan tu trong mang.\n");
+   printf("\t 1. Nhap Mang.\n");
+   printf("\t 2. Them Phan Tu vao trong mang.\n");
+   printf("\t 3. Chen phan tu vao vi tri bat ki.\n");
+   printf("\t 4. Xoa phan tu trong mang.\n");
    printf("\t 5. Tim vi tri cua phan tu.\n");
    printf("\t 6. Thoat .... !! ");
    printf("\n-----------------------------------------------------------------");
@@ -68,7 +67,7 @@ void menu(){
 
 int main(){
     int a[100];
-    int n,GiaTri,pos,c;
+    int n,GiaTri,VT,c;
 
     while(1){
         menu();
@@ -77,6 +76,7 @@ int main(){
         switch(c){
          case 1 :
             system("cls");
+            
             printf("\tBAN DA CHON NHAP MANG !!\n");
             printf("nhap size cho mang : ");
             scanf("%d",&n);
@@ -84,6 +84,7 @@ int main(){
             break;
          case 2 :
              system("cls");
+             
              printf("\tBAN DA CHON THEM PHAN TU CHO MANG !!\n");
              printf("nhap gia tri can them : ");
              scanf("%d",&GiaTri);
@@ -99,31 +100,34 @@ int main(){
 
              XuatMang(a,n);
              printf("\nnhap vi tri can them :  ");
-                scanf("%d",&pos);
+                scanf("%d",&VT);
              printf("\nnhap gia tri can them : ");
                 scanf("%d",&GiaTri);
 
-             ChenPhanTu(a,&n,GiaTri,pos);
+             ChenPhanTu(a,&n,GiaTri,VT);
 
              printf("\n Mang moi la : ");
              XuatMang(a,n);
              break;
          case 4:
              system("cls");
+             
              printf("\t--- BAN DA CHON XOA 1 PHAN TU !! ---\n");
              printf("mang ban dau la : ");
              XuatMang(a,n);
-             xoaPhanTu(a,&n,pos);
+             xoaPhanTu(a,&n,VT);
              printf("\nmang sau khi xoa la : ");
              XuatMang(a,n);
              break;
          case 5 :
             system("cls");
+            
             printf("\t--- BAN DA CHON TIM KIEM VI TRI CUA 1 PHAN TU !! ---\n");
             printf("nhap phan tu can tim : ");
             scanf("%d",&GiaTri);
             TimViTri(a,n,GiaTri);
             printf("\n");
+            printf("\t--MANG BAN DAU --\n");
             XuatMang(a,n);
             break;
          case 6:
